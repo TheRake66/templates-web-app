@@ -3,7 +3,7 @@ assembly:
   name: {{namespace_dash_lower}}                                       # Nom de l'application.
   version: 1.0.0                                                       # Version de l'application.
   author: {{creator_name}}                                             # Auteur de l'application.
-  github: https://github.com/{{creator_name}}/{{namespace_dash_lower}} # Lien vers le depot de code.
+  github: https://github.com/{{creator_name}}/{{namespace_dash_lower}} # Lien vers le dépôt de code.
 
 # Valeurs par défaut pour les librairies.
 default:
@@ -13,8 +13,8 @@ default:
 
 # Configuration des routes de l'application.
 routes:
-  root: /...      # Route racine de l'application.
-  unknown: /...   # Route de redirection pour les pages introuvables (404).
+  homepage: /... # Route racine de l'application (/).
+  notfound: /... # Route pour les pages introuvables (*).
 
 # Nom des cookies utilisés dans les librairies.
 cookies: 

@@ -16,8 +16,8 @@ import type { ComponentType } from 'react';
 import config from '@/config.yaml';
 
 // On charge la configuration.
-const rootRoute: string = config.routes.root;
-const unknownRoute: string = config.routes.unknown;
+const homepageRoute: string = config.routes.homepage;
+const notfoundRoute: string = config.routes.notfound;
 
 /**
  * Format des routes dynamiques.
@@ -53,6 +53,6 @@ function getRoute(path: string): string {
     .replace(/^\/pages/, '')
     .replace(/\.tsx$/, '')
     .replace('/$', '/:');
-  return url == rootRoute ? '/' : 
-         url == unknownRoute ? '*' : url;
+  return url == homepageRoute ? '/' : 
+         url == notfoundRoute ? '*' : url;
 }
