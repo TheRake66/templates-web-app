@@ -103,7 +103,7 @@ UniCast("hello", say_hello, 3)
 
 ```tsx
 // frontend/sources/pages/hello.tsx
-import { socket } from '../services/backend.ts';
+import { socket } from '@/services/backend.ts';
 
 useEffect(() => {
   socket.emit('hello#follow');
@@ -131,7 +131,7 @@ MultiCast("hello", say_hello, 3)
 
 ```tsx
 // frontend/sources/pages/hello.tsx
-import { socket } from '../services/backend.ts';
+import { socket } from '@/services/backend.ts';
 
 useEffect(() => {
   socket.emit('hello#follow');
@@ -159,7 +159,7 @@ BroadCast("hello", say_hello, 3)
 
 ```tsx
 // frontend/sources/pages/hello.tsx
-import { socket } from '../services/backend.ts';
+import { socket } from '@/services/backend.ts';
 
 useEffect(() => {
   socket.on('hello#broadcast', data => console.log(data.message));
