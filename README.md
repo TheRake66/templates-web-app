@@ -51,6 +51,7 @@ You will get the files:
 
 That creates the route:
 ```tsx
+// @/main.tsx
 <Route path="/user/:id/stats" element={<Stats />} />
 ```
 
@@ -71,6 +72,7 @@ You will get the files:
 
 That creates the store:
 ```ts
+// @/services/provider.tsx
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
