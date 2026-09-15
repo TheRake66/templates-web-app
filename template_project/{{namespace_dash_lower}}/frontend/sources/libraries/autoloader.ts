@@ -21,6 +21,13 @@ export interface Module<T = unknown> {
 }
 
 /**
+ * Type d'un module chargé.
+ *
+ * @template T Type du module chargé.
+ */
+export type LoadedModule<T = unknown> = Record<string, Module<T>>;
+
+/**
  * Format d'un module dynamique.
  *
  * @template T Type du module.
@@ -41,16 +48,14 @@ export type ModuleFormatter = (path: string) => string;
 /**
  * Charge dynamiquement une liste de modules.
  *
- * @param glob Motif des modules à charger.
+ * @param modules Liste des modules chargés.
  * @param formatter Fonction permettant de déterminer le nom du module.
  * @returns {DynamicModule<T>[]} Les modules chargés.
  */
 export function loadModules<T = unknown>(
-  glob: string, 
+  modules: LoadedModule<T>,
   formatter: ModuleFormatter
 ): DynamicModule<T>[] {
-  const modules: Record<string, Module<T>> = 
-    import.meta.glob<Module<T>>(glob, { eager: true });
   return Object.entries(modules)
     .map(([path, module]): DynamicModule<T> => ({
       name: formatter(path),

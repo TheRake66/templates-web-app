@@ -11,7 +11,7 @@
  * Notes                 : 
  */
 
-import { loadModules, type DynamicModule } from '@/libraries/autoloader.ts';
+import { loadModules, type DynamicModule, type LoadedModule, type Module } from '@/libraries/autoloader.ts';
 import type { Reducer } from '@reduxjs/toolkit';
 
 /**
@@ -27,12 +27,14 @@ export interface DynamicReducer {
  *
  * @returns {DynamicReducer[]} Les reducers chargés.
  */
-export function loadReducers(): DynamicReducer[] {
-  return loadModules<Reducer>('@/pages/**/*.tsx', getName)
+export function loadReducers(): DynamicReducer[] {    
+  const modules: LoadedModule<Reducer> = 
+    import.meta.glob<Module<Reducer>>('@/pages/**/*.tsx', { eager: true });
+  return loadModules(modules, getName)
     .map(({ name, module }: DynamicModule<Reducer>) => ({
       name: name,
       reducer: module
-    }));
+    } as DynamicReducer));
 }
 
 /**

@@ -11,7 +11,7 @@
  * Notes                 : 
  */
 
-import { loadModules, type DynamicModule } from '@/libraries/autoloader.ts';
+import { loadModules, type DynamicModule, type LoadedModule, type Module } from '@/libraries/autoloader.ts';
 import type { ComponentType } from 'react';
 import config from '@/config.yaml';
 
@@ -33,11 +33,13 @@ export interface DynamicRoute {
  * @returns {DynamicRoute[]} Les routes chargées.
  */
 export function loadRoutes(): DynamicRoute[] {
-  return loadModules<ComponentType>('@/pages/**/*.tsx', getRoute)
+  const modules: LoadedModule<ComponentType> = 
+    import.meta.glob<Module<ComponentType>>('@/pages/**/*.tsx', { eager: true });
+  return loadModules(modules, getRoute)
     .map(({ name, module }: DynamicModule<ComponentType>) => ({
       route: name,
       component: module
-    }));
+    } as DynamicRoute));
 }
 
 /**

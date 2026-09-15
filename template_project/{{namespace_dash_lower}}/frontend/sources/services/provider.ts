@@ -11,7 +11,7 @@
  * Notes                 : 
  */
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { configureStore, type Reducer } from '@reduxjs/toolkit';
 import { loadReducers } from '@/libraries/reducer.ts';
 

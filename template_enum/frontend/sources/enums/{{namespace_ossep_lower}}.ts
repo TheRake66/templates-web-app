@@ -1,5 +1,5 @@
 /**
- * Nom du module         : {{lower_name}}.type.ts
+ * Nom du module         : {{lower_name}}.ts
  * Description           : 
  * 
  * Auteur                : {{user_name}}
@@ -12,8 +12,13 @@
  */
 
 /**
- * Définition du type {{title_name}}.
+ * Liste d'énumération {{title_name}}.
  */
-export interface {{title_name}} {
+export const {{title_name}} = {
   
-}
+} as const;
+
+/**
+ * Conversion en type {{title_name}}Type.
+ */
+export type {{title_name}}Type = typeof {{title_name}}[keyof typeof {{title_name}}];
