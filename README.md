@@ -45,8 +45,8 @@ You will get the files:
 └─pages/
   └─user/
     └─$id/
-      ├──stats.module.scss
-      └──stats.tsx
+      ├─stats.module.scss
+      └─stats.tsx
 ```
 
 That creates the route:
@@ -66,7 +66,7 @@ fast create store counter
 You will get the files:
 ```
 └─stores/
-  └──counter.ts
+  └─counter.ts
 ```
 
 That creates the store:
