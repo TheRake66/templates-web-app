@@ -3,7 +3,7 @@ import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import babel from '@rolldown/plugin-babel';
 import rollupYaml from '@rollup/plugin-yaml';
 import svgr from 'vite-plugin-svgr';
-import { resolve } from 'path'
+import { resolve } from 'path';
 
 const yaml = rollupYaml as unknown as () => any;
 const find = (path: string): string => resolve(import.meta.dirname, path);
