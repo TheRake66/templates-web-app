@@ -31,6 +31,53 @@ fast start frontend
 fast start backend
 ```
 
+## Use routing
+
+You do not need to register each route in `main.tsx`. Routes are automatically loaded based on filenames.
+
+With the command:
+```sh
+fast create page user-$id-stats
+```
+
+You will get the files:
+```
+└─pages/
+  └─user/
+    └─$id/
+      ├──stats.module.scss
+      └──stats.tsx
+```
+
+That creates the route:
+```tsx
+<Route path="/user/:id/stats" element={<Stats />} />
+```
+
+## Use store
+
+Same as routing, you do not need to register each store in `provider.ts`. Stores are automatically loaded based on filenames.
+
+With the command:
+```sh
+fast create store counter
+```
+
+You will get the files:
+```
+└─stores/
+  └──counter.ts
+```
+
+That creates the store:
+```ts
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+})
+```
+
 ## Use WebSocket casting
 
 You have three classes for managing broadcast lists with regular data delivery over WebSockets:
