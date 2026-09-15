@@ -36,7 +36,7 @@ interface Use{{title_name}}Return {
 export default function use{{title_name}}({}: Use{{title_name}}Props): Use{{title_name}}Return {
   const [ value, setValue ] = useState('');
 
-  useEffect(() => {
+  useEffect((): void => {
     
   }, [ ]);
 
