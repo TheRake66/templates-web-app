@@ -11,9 +11,10 @@ default:
   theme: light                 # Thème graphique par défaut (clair/sombre).
   fullscreen: false            # Active ou désactive le mode plein écran par défaut.
 
+# Configuration des routes de l'application.
 routes:
-  root: /home
-  unknown: /home
+  root: /...      # Route racine de l'application.
+  unknown: /...   # Route de redirection pour les pages introuvables (404).
 
 # Nom des cookies utilisés dans les librairies.
 cookies: 
