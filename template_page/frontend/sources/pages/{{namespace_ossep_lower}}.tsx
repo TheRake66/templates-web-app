@@ -14,7 +14,6 @@
 import { useState, useEffect, type JSX } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
 import styles from './{{lower_name}}.module.scss';
 
 /**

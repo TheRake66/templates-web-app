@@ -11,8 +11,11 @@
  * Notes                 : 
  */
 
-import { loadModules, type DynamicModule, type LoadedModule, type Module } from '@/libraries/autoloader.ts';
 import type { ComponentType } from 'react';
+import { loadModules, 
+  type DynamicModule, 
+  type LoadedModule, 
+  type Module } from '@/libraries/autoloader.ts';
 import config from '@/config.yaml';
 
 // On charge la configuration.

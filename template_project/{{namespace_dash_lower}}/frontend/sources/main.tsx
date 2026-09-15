@@ -28,8 +28,8 @@ import { initAnalytics, AnalyticsTracker } from '@/libraries/analytics.ts';
  * Injection des fichiers de style.
  */
 import '@/styles/fonts.scss';
-import '@/styles/globals.scss';
 import '@/styles/themes.scss';
+import '@/styles/globals.scss';
 import '@/styles/variables.scss';
 
 /**

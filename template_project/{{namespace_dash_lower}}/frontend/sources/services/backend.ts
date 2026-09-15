@@ -22,6 +22,8 @@ const server: string = `${protocol}://${backend.address}:${backend.port}`;
 
 /**
  * Format des réponses de l'API.
+ * 
+ * @template T Type du contenu de la réponse.
  */
 export interface Response<T = unknown> {
   message: string;

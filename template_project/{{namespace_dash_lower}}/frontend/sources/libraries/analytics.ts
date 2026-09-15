@@ -13,8 +13,8 @@
  * Notes                 : 
  */
 
-import { useEffect } from 'react';
 import { useLocation, type Location } from 'react-router-dom';
+import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import config from '@/config.yaml';
 

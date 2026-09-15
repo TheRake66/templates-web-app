@@ -11,8 +11,11 @@
  * Notes                 : 
  */
 
-import { loadModules, type DynamicModule, type LoadedModule, type Module } from '@/libraries/autoloader.ts';
 import type { Reducer } from '@reduxjs/toolkit';
+import { loadModules, 
+  type DynamicModule, 
+  type LoadedModule, 
+  type Module } from '@/libraries/autoloader.ts';
 
 /**
  * Format d'un reducer dynamique.
