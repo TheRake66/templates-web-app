@@ -1,6 +1,5 @@
 /**
  * Nom du module         : {{lower_name}}.type.ts
- * Chemin du package     : {{namespace_dash_lower}}
  * Description           : 
  * 
  * Auteur                : {{user_name}}
@@ -13,8 +12,8 @@
  */
 
 /**
- * Définition du type {{title_name}}Type.
+ * Définition du type {{title_name}}.
  */
-export type {{title_name}}Type = {
+export interface {{title_name}} {
   
 }

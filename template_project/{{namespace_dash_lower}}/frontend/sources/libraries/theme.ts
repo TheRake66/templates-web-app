@@ -11,37 +11,36 @@
  * Notes                 : 
  */
 
-import config from '../config.yaml';
-import type { ThemeType } from '../enums/theme.type.ts';
+import config from '@/config.yaml';
 
-const defaultTheme = config.default.theme;
-const storageKey = config.storage.theme;
+// On charge la configuration.
+const defaultTheme: string = config.default.theme;
+const storageKey: string = config.storage.theme;
 
 /**
  * Initialise le thème des couleurs en récupérant la valeur enregistrée 
  * ou celle défaut dans le fichier de configuration de l'application.
  */
 export function initTheme(): void {
-  const theme = getTheme();
-  document.body.setAttribute('data-theme', theme);
+  const name: string = getTheme();
+  document.body.setAttribute('data-theme', name);
 }
 
 /**
  * Modifie le thème actif des couleurs .
  * 
- * @param {ThemeType} theme Le nouveau thème à appliquer.
+ * @param {string} name Le nouveau thème à appliquer.
  */
-export function setTheme(theme: ThemeType): void {
-  document.body.setAttribute('data-theme', theme);
-  localStorage.setItem(storageKey, theme);
+export function setTheme(name: string): void {
+  document.body.setAttribute('data-theme', name);
+  localStorage.setItem(storageKey, name);
 }
 
 /**
  * Récupère le thème actif des couleurs.
  * 
- * @returns {ThemeType} Le thème actif des couleur.
+ * @returns {string} Le thème actif des couleur.
  */
-export function getTheme(): ThemeType {
-  const stored = localStorage.getItem(storageKey) ?? defaultTheme;
-  return stored as ThemeType;
+export function getTheme(): string {
+  return localStorage.getItem(storageKey) ?? defaultTheme;
 }

@@ -14,13 +14,13 @@
  */
 
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, type Location } from 'react-router-dom';
 import ReactGA from 'react-ga4';
-import config from '../config.yaml';
+import config from '@/config.yaml';
 
 /**
- * Initialise l'état de la librairie Google Analytics avec le Google ID
- * présent dans le fichier de configuration de l'application.
+ * Initialise l'état de la Google Analytics avec le Google ID présent
+ * dans le fichier de configuration de l'application.
  */
 export function initAnalytics(): void {
   ReactGA.initialize(config.analytics.googleid);
@@ -33,12 +33,12 @@ export function initAnalytics(): void {
  * @returns {null} Ce composant n'affiche aucun élément visuel.
  */
 export function AnalyticsTracker(): null {
-  const location = useLocation();
-  useEffect(() => {
+  const current: Location = useLocation();
+  useEffect((): void => {
     ReactGA.send({ 
       hitType: 'pageview', 
-      page: location.pathname + location.search 
+      page: current.pathname + current.search 
     });
-  }, [location]);
+  }, [ current ]);
   return null;
 }

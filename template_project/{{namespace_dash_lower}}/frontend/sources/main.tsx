@@ -15,30 +15,30 @@
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { initTheme } from './libraries/theme.ts';
-import { initFullscreen } from './libraries/fullscreen.ts';
-import { initLanguage } from './libraries/language.ts';
-import { initAnalytics, AnalyticsTracker } from './libraries/analytics.ts';
+import { initTheme } from '@/libraries/theme.ts';
+import { initLanguage } from '@/libraries/language.ts';
+import { initFullscreen } from '@/libraries/fullscreen.ts';
+import { loadRoutes, type DynamicRoute } from '@/libraries/routing.ts';
+import { initAnalytics, AnalyticsTracker } from '@/libraries/analytics.ts';
 
 /**
  * Injection des fichiers de style.
  */
-import './font.scss';
-import './theme.scss';
-import './variable.scss';
-import './global.scss';
+import '@/styles/fonts.scss';
+import '@/styles/globals.scss';
+import '@/styles/themes.scss';
+import '@/styles/variables.scss';
 
 /**
  * Initialisation des librairies.
  */
 initTheme();
-initFullscreen();
 initLanguage();
 initAnalytics();
+initFullscreen();
 
 /**
  * Définition des routes vers les pages.
@@ -49,13 +49,9 @@ createRoot(document.getElementById('root')!).render(
       <Router>
         <AnalyticsTracker />
         <Routes>
-          
-          <Route path="/" element={<Navigate to="/" replace />} />
-          
-          
-          
-          <Route path="*" element={<Navigate to="/" replace />} />
-          
+          {loadRoutes().map((route: DynamicRoute) => (
+            <Route key={route.route} path={route.route} element={<route.component />} />
+          ))}
         </Routes>
       </Router>
     </HelmetProvider>

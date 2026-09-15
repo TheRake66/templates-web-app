@@ -23,10 +23,10 @@ Notes                 :
   propre liste à gérer.
 """
 
+from typing import Callable, Optional, List, Awaitable, Coroutine, Tuple
+from asyncio import Task, CancelledError, sleep, create_task
 from services.websocket import websocket, emit_data
 from libraries.response import Response
-from asyncio import Task, CancelledError, sleep, create_task
-from typing import Callable, Optional, List, Awaitable, Coroutine, Tuple
 
 type MultiTask = Callable[[Tuple[str]], Awaitable[Response]]
 """Fonction retournant les données à diffuser.

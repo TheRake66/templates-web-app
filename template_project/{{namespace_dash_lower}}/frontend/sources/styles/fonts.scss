@@ -1,0 +1,44 @@
+/**
+ * Nom du module         : fonts.scss
+ * Description           : Définition des polices d'écriture.
+ * 
+ * Auteur                : TheRake66
+ * Date de création      : 2026-08-28 04:01:51
+ * Dernière modification : 2026-08-28 04:01:51
+ * Version               : 1.0.0
+ * Licence               : GPL-3.0
+ * 
+ * Notes                 : 
+ */
+
+/**
+ * Police d'écriture grasse.
+ */
+@font-face {
+  font-family: "bold";
+  src: url("./assets/fonts/Montserrat-Bold.ttf") format("truetype");
+}
+
+/**
+ * Police d'écriture semi-grasse.
+ */
+@font-face {
+  font-family: "medium";
+  src: url("./assets/fonts/Montserrat-Medium.ttf") format("truetype");
+}
+
+/**
+ * Police d'écriture normale.
+ */
+@font-face {
+  font-family: "regular";
+  src: url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
+/**
+ * Police d'écriture fine.
+ */
+@font-face {
+  font-family: "light";
+  src: url("./assets/fonts/Montserrat-Light.ttf") format("truetype");
+}

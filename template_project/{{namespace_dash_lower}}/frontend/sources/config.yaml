@@ -11,6 +11,10 @@ default:
   theme: light                 # Thème graphique par défaut (clair/sombre).
   fullscreen: false            # Active ou désactive le mode plein écran par défaut.
 
+routes:
+  root: /home
+  unknown: /home
+
 # Nom des cookies utilisés dans les librairies.
 cookies: 
   example: example # Clé du cookie pour l'example.

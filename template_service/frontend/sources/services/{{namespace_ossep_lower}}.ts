@@ -1,6 +1,5 @@
 /**
  * Nom du module         : {{lower_name}}.ts
- * Chemin du package     : {{namespace_dash_lower}}
  * Description           : 
  * 
  * Auteur                : {{user_name}}

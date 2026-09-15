@@ -1,6 +1,5 @@
 /**
  * Nom du module         : {{lower_name}}.tsx
- * Chemin du package     : {{namespace_dash_lower}}
  * Description           : 
  * 
  * Auteur                : {{user_name}}
@@ -29,7 +28,7 @@ export default function {{title_name}}() {
 
   useEffect(() => {
     
-  }, []);
+  }, [ ]);
 
   return (
     <main className={styles.container}>

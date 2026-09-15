@@ -21,11 +21,10 @@ Notes                 :
   manuellement le WebSocket lors de l'événement "disconnect" en appelant "cleanup_sid".
 """
 
-from __future__ import annotations
-from services.websocket import websocket, emit_data
-from libraries.response import Response
 from asyncio import Task, CancelledError, sleep, create_task
 from typing import Callable, List, Dict, Awaitable, Coroutine
+from services.websocket import websocket, emit_data
+from libraries.response import Response
 
 type UniTask = Callable[[str], Awaitable[Response]]
 """Fonction retournant les données à diffuser.

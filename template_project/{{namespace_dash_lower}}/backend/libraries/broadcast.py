@@ -21,10 +21,10 @@ Notes                 :
   propre liste à gérer.
 """
 
-from libraries.response import Response
-from services.websocket import emit_data, get_users
-from asyncio import Task, CancelledError, sleep, create_task
 from typing import Callable, List, Optional, Awaitable, Coroutine, Tuple
+from asyncio import Task, CancelledError, sleep, create_task
+from services.websocket import emit_data, get_users
+from libraries.response import Response
 
 type BroadTask = Callable[[Tuple[str]], Awaitable[Response]]
 """Fonction retournant les données à diffuser.

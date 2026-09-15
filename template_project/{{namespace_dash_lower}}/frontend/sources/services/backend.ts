@@ -11,35 +11,37 @@
  * Notes                 : 
  */
 
-import axios from 'axios';
-import { io, Socket } from 'socket.io-client';
-import config from '../config.yaml';
+import { create, type AxiosInstance } from 'axios';
+import { io, type Socket } from 'socket.io-client';
+import config from '@/config.yaml';
 
-interface BackConfig {
-  address: string;
-  port: number;
-  version: string;
-  wspath: string;
-  secure: boolean;
-  timeout: number;
-}
-
-const backend: BackConfig = config.backend;
+// On charge la configuration.
+const backend: any = config.backend;
 const protocol: string = backend.secure ? 'https' : 'http';
+const server: string = `${protocol}://${backend.address}:${backend.port}`;
+
+/**
+ * Format des réponses de l'API.
+ */
+export interface Response<T = unknown> {
+  message: string;
+  code: number;
+  content: T;
+}
 
 /**
  * Objet contenant la connexion à l'API REST.
  */
-export const rest = axios.create({
-  baseURL: `${protocol}://${backend.address}:${backend.port}/api/${backend.version}/`,
+export const rest: AxiosInstance = create({
+  baseURL: `${server}/api/${backend.version}`,
   headers: { 'Content-Type': 'application/json' },
   timeout: backend.timeout
 });
 
 /**
- * Objet contenant la connexion au WebSocket.
+ * Objet contenant la connexion au serveur de WebSocket.
  */
-export const socket: Socket = io(`${protocol}://${backend.address}:${backend.port}`, {
+export const socket: Socket = io(server, {
   autoConnect: true,
   transports: [ 'websocket', 'polling' ],
   timeout: backend.timeout,

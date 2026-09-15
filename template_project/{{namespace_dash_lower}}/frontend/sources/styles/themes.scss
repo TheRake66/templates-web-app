@@ -1,0 +1,70 @@
+/**
+ * Nom du module         : themes.scss
+ * Description           : 
+ *   Définition des variables de couleurs utilisées 
+ *   pour les thèmes.
+ * 
+ * Auteur                : TheRake66
+ * Date de création      : 2026-08-28 04:01:51
+ * Dernière modification : 2026-08-28 04:01:51
+ * Version               : 1.0.0
+ * Licence               : GPL-3.0
+ * 
+ * Notes                 : 
+ */
+
+/**
+ * Thème clair.
+ */
+[data-theme="light"] {
+  --theme-neutral: #4277DF;
+  --theme-neutral-transparent: rgb(66, 119, 223, .3);
+
+  --theme-good: #249F58;
+  --theme-good-transparent: rgb(36, 159, 88, .3);
+
+  --theme-warning: #D7A71E;
+  --theme-warning-transparent: rgb(215, 167, 30, .3);
+
+  --theme-danger: #CF3730;
+  --theme-danger-transparent: rgb(207, 55, 48, .3);
+
+  --theme-font: #101010;
+  --theme-font-alternative: #434C53;
+  
+  --theme-background-light: #FFFFFF;
+  --theme-background: #F9FBFA;
+  --theme-background-dark: #F3F4F6;
+
+  --theme-scroll: #B0B3B9;
+  --theme-border: #B0B3B9;
+  --theme-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/**
+ * Thème sombre.
+ */
+[data-theme="dark"] {
+  --theme-neutral: #4277DF;
+  --theme-neutral-transparent: rgb(66, 119, 223, .3);
+
+  --theme-good: #4AB975;
+  --theme-good-transparent: rgb(74, 185, 117, .3);
+
+  --theme-warning: #FDC23A;
+  --theme-warning-transparent: rgb(253, 194, 58, .3);
+
+  --theme-danger: #EA4F45;
+  --theme-danger-transparent: rgb(234, 79, 69, .3);
+
+  --theme-font: #FFFFFF;
+  --theme-font-alternative: #C1C1C1;
+  
+  --theme-background-light: #343B43;
+  --theme-background: #252932;
+  --theme-background-dark: #151B27;
+
+  --theme-scroll: #878A8F;
+  --theme-border: #878A8F;
+  --theme-shadow: rgba(0, 0, 0, 0.2);
+}

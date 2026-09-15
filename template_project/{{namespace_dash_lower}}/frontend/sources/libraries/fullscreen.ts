@@ -11,10 +11,11 @@
  * Notes                 : 
  */
 
-import config from '../config.yaml';
+import config from '@/config.yaml';
 
-const defaultState = config.default.fullscreen;
-const storageKey = config.storage.fullscreen;
+// On charge la configuration.
+const defaultState: string = config.default.fullscreen;
+const storageKey: string = config.storage.fullscreen;
 
 /**
  * Initialise l'état du mode plein écran au chargement de l'application
@@ -22,9 +23,9 @@ const storageKey = config.storage.fullscreen;
  * configuration de l'application.
  */
 export function initFullscreen(): void {
-  const fullscreen = localStorage.getItem(storageKey) ?? defaultState;
+  const fullscreen: string = localStorage.getItem(storageKey) ?? defaultState;
   if (fullscreen && !isFullscreen()) {
-    const handler = () => {
+    const handler = (): void => {
       requestFullscreen();
       window.removeEventListener('click', handler);
     };

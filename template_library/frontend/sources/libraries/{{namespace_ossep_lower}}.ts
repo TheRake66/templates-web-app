@@ -1,6 +1,5 @@
 /**
  * Nom du module         : {{lower_name}}.ts
- * Chemin du package     : {{namespace_dash_lower}}
  * Description           : 
  * 
  * Auteur                : {{user_name}}
@@ -11,6 +10,8 @@
  * 
  * Notes                 : 
  */
+
+import config from '@/config.yaml';
 
 /**
  * Initialise l'état par défaut de {{title_name}}.
