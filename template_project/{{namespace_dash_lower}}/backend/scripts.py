@@ -3,15 +3,19 @@ from datetime import datetime
 from os.path import exists, join, dirname
 from zipfile import ZipFile, ZIP_DEFLATED
 from pathlib import Path
+from typing import List
 from sys import argv, executable, exit
 from os import name, chdir
 
-# ==================================================
+# ====================================================================
 VENV_DIR: str = "venv"
 PACK_FILE: str = "requirements.txt"
 RUN_CMD: str = "uvicorn main:application --reload --host localhost --port 8000"
 BUILD_FMT: str = "%Y-%m-%d_%Hh%Mm%Ss"
-# ==================================================
+BUILD_DIR: Path = Path("builds")
+SKIP_DIR: List[str] = [ "__pycache__", "venv", "builds" ]
+SKIP_EXT: List[str] = [ ".log", ".zip" ]
+# ====================================================================
 
 # On vérifie s'il y a un argument.
 if len(argv) != 2:
@@ -27,18 +31,18 @@ bin: str = ("bin", "Scripts")[win]
 pip: str = join(VENV_DIR, bin, "pip")
 exe: str = join(VENV_DIR, bin, "python")
 
-# On compresse tous les fichiers (sauf le cache et les logs).
+# On compresse tous les fichiers.
 def build() -> None:
   print("Building release...")
   work: Path = Path.cwd()
   date: str = datetime.now().strftime(BUILD_FMT)
-  file: Path = Path(f"{date}.zip")
-  files: list[Path] = work.rglob("*")
-  with ZipFile(file, "w", ZIP_DEFLATED):
+  file: Path = BUILD_DIR / Path(f"{date}.zip")
+  files: List[Path] = work.rglob("*")
+  with ZipFile(file, "w", ZIP_DEFLATED) as zip:
     for file in files:
       if file.is_file() \
-      and file.suffix not in [".zip", ".log"] \
-      and "__pycache__" not in file.parts:
+      and file.suffix not in SKIP_EXT \
+      and set(file.parts).isdisjoint(SKIP_DIR):
         arcname: Path = file.relative_to(work)
         zip.write(file, arcname)
   print("Build complete.")
@@ -68,9 +72,8 @@ try:
     case "install": install()
     case "start": start()
     case _: print("Unkown command!")
-except Exception as e:
-  print(e)
+except KeyboardInterrupt: pass
+except Exception as e: input(e)
 
 # On quitte le programme.
-input("Press any key to exit...")
 exit()
