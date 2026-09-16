@@ -61,9 +61,9 @@ def install() -> None:
 def start() -> None:
   if not exists(VENV_DIR):
     print("Environment not exist! Please install it first.")
-  else: 
-    print("Running server...")
-    check_call([exe, "-m"] + RUN_CMD.split())
+    return
+  print("Running server...")
+  check_call([exe, "-m"] + RUN_CMD.split())
 
 # On lance la bonne commande.
 try:
@@ -73,7 +73,8 @@ try:
     case "start": start()
     case _: print("Unkown command!")
 except KeyboardInterrupt: pass
-except Exception as e: input(e)
+except Exception as e: print(e)
 
 # On quitte le programme.
+input("Press any key to exit...")
 exit()
