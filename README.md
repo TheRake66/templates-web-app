@@ -114,7 +114,7 @@ useEffect(() => {
     socket.emit('hello#unfollow');
     socket.off('hello#receive');
   };
-}, []);
+}, [ ]);
 ```
 
 ### Example using MultiCast
@@ -142,7 +142,7 @@ useEffect(() => {
     socket.emit('hello#unfollow');
     socket.off('hello#receive');
   };
-}, []);
+}, [ ]);
 ```
 
 ### Example using BroadCast
@@ -166,7 +166,7 @@ import { socket } from '@/services/backend.ts';
 useEffect(() => {
   socket.on('hello#broadcast', data => console.log(data.message));
   return () => socket.off('hello#broadcast');
-}, []);
+}, [ ]);
 ```
 
 ## Service hierarchy
